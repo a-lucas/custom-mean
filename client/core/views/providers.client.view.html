@@ -1,0 +1,109 @@
+
+<div ng-controller="ProvidersController" class="container">
+
+
+    <h1 class="text-center" translate>
+        Social Media Profiles
+
+        <lx-button translate
+                   ng-click="openProvidersDialog()">
+            Add a new Provider
+        </lx-button>
+
+    </h1>
+
+    <lx-dialog id="providerDialog">
+        <lx-dialog-header>
+            <div class="toolbar bgc-primary pl++">
+                <span class="toolbar__label tc-white fs-title">
+                    Add a provider
+                </span>
+
+            </div>
+
+            <lx-tabs lx-panes-id="lorem-ipsum"
+                     lx-links="[{label: 'Unlinked Account'}, {label: 'Linked account'}]"
+                     lx-layout="inline"
+                     lx-theme="dark"
+                     lx-color="primary"
+                     lx-indicator="yellow"></lx-tabs>
+        </lx-dialog-header>
+
+        <lx-dialog-content>
+            <lx-tabs-panes id="lorem-ipsum">
+                <lx-tab-pane>
+                    <div class="p++">
+                        <div ng-repeat="unlinkedAccount in unlinkedAccounts">
+
+                        </div>
+                    </div>
+                </lx-tab-pane>
+
+                <lx-tab-pane>
+                    <div class="p++">
+                        <p>Linked Account</p>
+                        <div ng-repeat="linkedAccount in linkedAccounts">
+
+                        </div>
+
+                    </div>
+                </lx-tab-pane>
+
+            </lx-tab-panes>
+        </lx-dialog-content>
+
+        <lx-dialog-footer>
+            <lx-button lx-color="black" lx-type="flat" lx-dialog-close>Cancel</lx-button>
+            <lx-button lx-type="flat" lx-dialog-close>Ok</lx-button>
+        </lx-dialog-footer>
+    </lx-dialog>
+
+    <div class="card" ng-repeat="provider in providers">
+        <div class="gr-2 card__img card__img--left" style="height: 160px">
+            <img ng-src="{{providers.profileImageURL + '?type=large'}}">
+        </div>
+
+        <div class="gr-10">
+
+            <div class="p+">
+                <strong class="fs-headline display-block">{{provider.providerName}}</strong>
+                <span   class="fs-subhead tc-black-2 display-block"
+                        translate>
+                    Profile created on {{provider.created}}
+                </span>
+
+                <span class="fs-subhead tc-black-2 display-block" translate>
+                   Profile URL: {{provider.profileUrl}}
+                </span>
+
+                <span class="fs-subhead tc-black-2 display-block" translate>
+                    Email: {{provider.email}}
+                </span>
+
+                <span class="fs-subhead tc-black-2 display-block" translate>
+                    First Name:{{provider.firstName}}
+                </span>
+                <span class="fs-subhead tc-black-2 display-block" translate>
+                    Last Name: {{provider.lastName}}
+                </span>
+                <span class="fs-subhead tc-black-2 display-block" translate>
+                    Display Name: {{provider.displayName}}
+                </span>
+            </div>
+            <div class="card__actions">
+                <lx-button lx-color="black"
+                           lx-type="flat"
+                           translate
+                           ng-click="unlink(provider)">
+                    Unlink
+                </lx-button>
+                <lx-button lx-color="orange"
+                           lx-type="flat"
+                           translate
+                           ui-sref="profile">
+                    Mark as primary
+                </lx-button>
+            </div>
+        </div>
+    </div>
+</div>

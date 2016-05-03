@@ -1,0 +1,16 @@
+<section class="row" ng-controller="AuthenticationController">
+    <h3 class="col-md-12 text-center" translate>Sign in using your social accounts</h3>
+
+    <div class="col-md-12 text-center">
+
+        <lx-button lx-type="flat"
+                   lx-size="xl"
+                   ng-repeat="auth in authenticationProviders"
+                   ng-click="authenticate(auth)">
+            <i class="mdi mdi-plus"></i>
+            <img ng-src="/providers/{{auth}}.png" />
+            {{auth}}
+        </lx-button>
+
+    </div>
+</section>

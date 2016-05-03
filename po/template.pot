@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: client/core/views/home.client.view.html:6
+msgid "Application Name"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:37
+msgid "Display Name: {{provider.displayName}}"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:27
+msgid "Email: {{provider.email}}"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:31
+msgid "First Name:{{provider.firstName}}"
+msgstr ""
+
+#: client/core/views/home.client.view.html:24
+msgid "Language: {{language}}"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:34
+msgid "Last Name: {{provider.lastName}}"
+msgstr ""
+
+#: client/core/views/home.client.view.html:10
+msgid "Login / SignIn"
+msgstr ""
+
+#: client/core/views/home.client.view.html:74
+msgid "Logout"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:48
+msgid "Mark as primary"
+msgstr ""
+
+#: client/core/views/home.client.view.html:61
+msgid "My Profile"
+msgstr ""
+
+#: client/core/views/home.client.view.html:67
+msgid "My Providers"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:18
+msgid "Profile created on {{provider.created}}"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:23
+msgid "Profile URL: {{provider.profileUrl}}"
+msgstr ""
+
+#: client/core/views/authentication.client.view.html:2
+msgid "Sign in using your social accounts"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:5
+msgid "Social Media Profiles"
+msgstr ""
+
+#: client/core/views/providers.client.view.html:42
+msgid "Unlink"
+msgstr ""

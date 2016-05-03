@@ -1,0 +1,5 @@
+angular.module('gettext').run(['gettextCatalog', function (gettextCatalog) {
+/* jshint -W100 */
+    gettextCatalog.setStrings('fr', {"Application Name":"Nom de l'application","Display Name: {{provider.displayName}}":"Pseudonyme: {{provider.displayName}}","Email: {{provider.email}}":"Email: {{provider.email}}","First Name:{{provider.firstName}}":"Prenom: {{provider.firstName}}","Last Name: {{provider.lastName}}":"Nom de famille: {{provider.lastName}}","Login / SignIn":"Login","Logout":"Déconnexion","Mark as primary":"Marquer comme original","My Profile":"Profil","My Providers":"Fournisseurs installés","Profile created on {{provider.created}}":"Profile cree le {{provider.created}}","Profile URL: {{provider.profileUrl}}":"Profile: {{provider.profileUrl}}","Sign in using your social accounts":"Identifiez vous avec votre compte prefere","Social Media Profiles":"Identifiants de reseau sociaux","Unlink":"Detacher"});
+/* jshint +W100 */
+}]);

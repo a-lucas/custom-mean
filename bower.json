@@ -1,0 +1,25 @@
+{
+  "name": "MEONA",
+  "description": "Full-Stack JavaScript with AuthD, MongoDB, Express, AngularJS, Node.js",
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4",
+    "angular-resource": "~1.4",
+    "angular-animate": "~1.4",
+    "angular-mocks": "~1.4",
+    "angular-ui-utils": "bower",
+    "angular-ui-router": "~0.2",
+    "angular-file-upload": "1.1.5",
+    "angular-messages": "~1.3.17",
+    "owasp-password-strength-test": "~1.3.0",
+    "oauth-js": "oauthio-web#~0.5.0",
+    "gridle": "^2.0.44",
+    "jquery": "2.1.4",
+    "lumx": "^0.3.96",
+    "angular-gettext": "^2.2.1"
+  },
+  "resolutions": {
+    "angular": "~1.4"
+  }
+}

@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: French\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Antoine\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: client/core/views/home.client.view.html:6
+msgid "Application Name"
+msgstr "Nom de l'application"
+
+#: client/core/views/providers.client.view.html:37
+msgid "Display Name: {{provider.displayName}}"
+msgstr "Pseudonyme: {{provider.displayName}}"
+
+#: client/core/views/providers.client.view.html:27
+msgid "Email: {{provider.email}}"
+msgstr "Email: {{provider.email}}"
+
+#: client/core/views/providers.client.view.html:31
+msgid "First Name:{{provider.firstName}}"
+msgstr "Prenom: {{provider.firstName}}"
+
+#: client/core/views/home.client.view.html:24
+msgid "Language: {{language}}"
+msgstr "Langue: {{language}}"
+
+#: client/core/views/providers.client.view.html:34
+msgid "Last Name: {{provider.lastName}}"
+msgstr "Nom de famille: {{provider.lastName}}"
+
+#: client/core/views/home.client.view.html:10
+msgid "Login / SignIn"
+msgstr "Login"
+
+#: client/core/views/home.client.view.html:74
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: client/core/views/providers.client.view.html:48
+msgid "Mark as primary"
+msgstr "Marquer comme original"
+
+#: client/core/views/home.client.view.html:61
+msgid "My Profile"
+msgstr "Profil"
+
+#: client/core/views/home.client.view.html:67
+msgid "My Providers"
+msgstr "Fournisseurs installés"
+
+#: client/core/views/providers.client.view.html:18
+msgid "Profile created on {{provider.created}}"
+msgstr "Profile cree le {{provider.created}}"
+
+#: client/core/views/providers.client.view.html:23
+msgid "Profile URL: {{provider.profileUrl}}"
+msgstr "Profile: {{provider.profileUrl}}"
+
+#: client/core/views/authentication.client.view.html:2
+msgid "Sign in using your social accounts"
+msgstr "Identifiez vous avec votre compte prefere"
+
+#: client/core/views/providers.client.view.html:5
+msgid "Social Media Profiles"
+msgstr "Identifiants de reseau sociaux"
+
+#: client/core/views/providers.client.view.html:42
+msgid "Unlink"
+msgstr "Detacher"
+
+#~ msgid "Display Name:"
+#~ msgstr "Pseudonyme:"
+
+#~ msgid "Email:"
+#~ msgstr "Adresse électronique :"
+
+#~ msgid "First Name:"
+#~ msgstr "Prénom :"
+
+#~ msgid "Last Name:"
+#~ msgstr "Nom de famille :"
+
+#~ msgid "Profile URL:"
+#~ msgstr "URL du profile"

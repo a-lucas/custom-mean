@@ -1,0 +1,128 @@
+<div class="toolbar"  ng-controller="HomeController">
+    <div class="toolbar__left mr++">
+        <h2 ui-sref="home">Logo</h2>
+    </div>
+
+    <span class="toolbar__label fs-title" translate>Application Name</span>
+
+    <div class="toolbar__right" ng-controller="LangController">
+
+        <lx-button lx-color="orange"
+                   ng-if="!authentication.user"
+                   lx-type="flat"
+                   translate
+                   ui-sref="authentication">
+            Login / SignIn
+        </lx-button>
+
+
+        <lx-dropdown
+
+                lx-over-toggle="true"
+                lx-position="right">
+            <lx-dropdown-toggle >
+                <lx-button lx-color="orange"
+                           lx-type="flat"
+                           translate>
+                    Language: {{language.name}}
+                </lx-button>
+
+            </lx-dropdown-toggle>
+
+            <lx-dropdown-menu >
+                <ul>
+                    <li ng-repeat="lang in languages"
+                        ng-click="selectLang(lang)">
+                        <a class="dropdown-link">
+                            {{lang.name}}
+                        </a>
+                    </li>
+                </ul>
+            </lx-dropdown-menu>
+        </lx-dropdown>
+
+
+        <lx-dropdown lx-over-toggle="true"
+                     lx-position="right"
+                     ng-if="authentication.user">
+            <lx-dropdown-toggle >
+                <lx-button lx-color="orange"
+                           lx-type="flat">
+                    <img ng-src="{{authentication.user.profileImageURL + '?type=small'}}" width="30"
+                         style="display: inline">
+                    {{authentication.user.firstName}}
+                </lx-button>
+
+            </lx-dropdown-toggle>
+
+            <lx-dropdown-menu >
+                <ul>
+                    <li>
+                        <a class="dropdown-link"
+                           translate>
+                            My Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="home.providers"
+                           translate
+                           class="dropdown-link">
+                            My Providers
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-link"
+                           translate
+                           ng-click="authentication.logout()">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </lx-dropdown-menu>
+        </lx-dropdown>
+    </div>
+</div>
+
+<div class="container" ui-view>
+
+</div>
+<!--
+<section ng-controller="HomeController">
+
+    <div ng-show="authentication.user">
+        <div class="card">
+            <div class="gr-2 card__img card__img--left" style="height: 160px">
+                <img ng-src="{{authentication.user.profileImageURL + '?type=large'}}">
+            </div>
+
+            <div class="gr-10">
+
+                <div class="p+">
+                    <strong class="fs-headline display-block">{{authentication.user.displayName}}</strong>
+                    <span class="fs-subhead tc-black-2 display-block">
+                        Profile created on {{authentication.user.created}}
+                    </span>
+                </div>
+
+                <div class="card__actions">
+                    <lx-button lx-color="black"
+                               lx-type="flat"
+                               ng-click="authentication.logout()">
+                        Logout
+                    </lx-button>
+                    <lx-button lx-color="orange"
+                               lx-type="flat"
+                               ui-sref="profile">
+                        My Profile
+                    </lx-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+-->
+
+<div class="footer">
+    I'm a footer
+</div>
