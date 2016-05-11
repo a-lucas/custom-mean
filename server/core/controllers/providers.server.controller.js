@@ -20,6 +20,8 @@ var providers = [];
 var getLogos = exports.getLogos = function(req, res) {
 
   var base = 'http://localhost:6284';
+  var config = require('../../../config');
+  console.log(config);
 
   if (providers.length === 0) {
     debug('going to signin');
@@ -117,6 +119,9 @@ var signInOAuthd = exports.signInOAuthd = function() {
   var defer = Q.defer();
 
   var base= 'http://localhost:6284';
+
+  var config = require('../../../config');
+  console.log(config);
 
   debug('going to signin');
 

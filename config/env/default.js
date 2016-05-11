@@ -22,6 +22,11 @@ module.exports = {
     // in HTTPS mode.
     secure: false
   },
+  oauthd: {
+    login: 'cooluhuru@gmail.com',
+    pass: 'qwe123QWE',
+    appKey: 'bUTGAq77wb3pbvYPjkC8s7z5c3k'
+  },
   // sessionSecret should be changed for security measures and concerns
   sessionSecret: process.env.SESSION_SECRET || 'MEAN',
   // sessionKey is set to the generic sessionId key used by PHP applications

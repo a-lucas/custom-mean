@@ -18,7 +18,6 @@ var config = require('../config'),
   cookieParser = require('cookie-parser'),
   helmet = require('helmet'),
   flash = require('connect-flash'),
-  winston = require('winston'),
   consolidate = require('consolidate'),
   path = require('path');
 
