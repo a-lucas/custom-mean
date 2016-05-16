@@ -176,34 +176,40 @@ var initGlobalConfigFiles = function (config, assets) {
 /**
  * Initialize global configuration
  */
+
+var debug = require('debug')('oauth:oauth.server.controller');
+
+
 var initGlobalConfig = function () {
   // Validate NODE_ENV existence
   validateEnvironmentVariable();
 
   // Get the default assets
-  var defaultAssets = require(path.join(process.cwd(), 'config/assets/default'));
+
+  var defaultAssets = require(path.join(__dirname, '/assets/default'));
 
   // Get the current assets
-  var environmentAssets = require(path.join(process.cwd(), 'config/assets/', process.env.NODE_ENV)) || {};
+  var environmentAssets = require(path.join(__dirname, '/assets/', process.env.NODE_ENV)) || {};
 
   // Merge assets
   var assets = _.merge(defaultAssets, environmentAssets);
 
   // Get the default config
-  var defaultConfig = require(path.join(process.cwd(), 'config/env/default'));
+  var defaultConfig = require(path.join(__dirname, '/env/default'));
 
   // Get the current config
-  var environmentConfig = require(path.join(process.cwd(), 'config/env/', process.env.NODE_ENV)) || {};
+  var environmentConfig = require(path.join(__dirname, '/env/', process.env.NODE_ENV)) || {};
 
   // Merge config files
   var config = _.merge(defaultConfig, environmentConfig);
 
   // read package.json for MEAN.JS project information
-  var pkg = require(path.resolve('./package.json'));
+  var pkg = require(path.resolve(__dirname + './../package.json'));
   config.meanjs = pkg;
 
   // Extend the config object with the local-NODE_ENV.js custom/local environment. This will override any settings present in the local configuration.
-  config = _.merge(config, (fs.existsSync(path.join(process.cwd(), 'config/env/local-' + process.env.NODE_ENV + '.js')) && require(path.join(process.cwd(), 'config/env/local-' + process.env.NODE_ENV + '.js'))) || {});
+  config = _.merge(config, (fs.existsSync(path.join(__dirname, '/env/local-' + process.env.NODE_ENV + '.js'))
+      && require(path.join(__dirname, '/env/local-' + process.env.NODE_ENV + '.js'))) || {});
 
   // Initialize global globbed files
   initGlobalConfigFiles(config, assets);

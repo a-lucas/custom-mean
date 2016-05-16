@@ -25,10 +25,17 @@ module.exports = {
   oauthd: {
     login: 'cooluhuru@gmail.com',
     pass: 'qwe123QWE',
-    appKey: 'bUTGAq77wb3pbvYPjkC8s7z5c3k'
+    appKey: 'bUTGAq77wb3pbvYPjkC8s7z5c3k',
+    serverURL: 'http://localhost:6284',
+    OAUTHD_ID: 'Ljs_v2bxsG77cXLXtkWaOm4nAHE',
+    OAUTHD_SECRET: 'pfu1o7O5dry0llvQ9c0pSUxLF20'
   },
   // sessionSecret should be changed for security measures and concerns
   sessionSecret: process.env.SESSION_SECRET || 'MEAN',
+  jwt: {
+    secret: process.env.TOKEN_SECRET || 'shhhhhhhhhh',
+    authHeaderName: 'x-access-token'
+  },
   // sessionKey is set to the generic sessionId key used by PHP applications
   // for obsecurity reasons
   sessionKey: 'sessionId',

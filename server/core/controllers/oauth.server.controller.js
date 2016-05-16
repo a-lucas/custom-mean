@@ -7,15 +7,19 @@
 var Q = require('q'),
   providerHelpers = require('../helpers/user.provider'),
   OAuth = require('oauthio'),
-  debug = require('debug')('oauth:oauth.server.controller');
+  debug = require('debug')('oauth:oauth.server.controller'),
+  config = require('../../../config/config'),
+  jwt = require('jwt-simple');
 
 
-var OAUTHD_ID = 'Ljs_v2bxsG77cXLXtkWaOm4nAHE';
-var OAUTHD_SECRET = 'pfu1o7O5dry0llvQ9c0pSUxLF20';
+
+/* todo
+  get this from config file
+ */
 
 exports.oauthd = function (req, res) {
-  OAuth.setOAuthdURL('http://localhost:6284');
-  OAuth.initialize(OAUTHD_ID, OAUTHD_SECRET);
+  OAuth.setOAuthdURL(config.oauthd.serverUrl);
+  OAuth.initialize(config.oauthd.OAUTHD_ID, config.oauthd.OAUTHD_SECRET);
   res.send(200, { token: OAuth.generateStateToken(req.session) });
 };
 
@@ -27,14 +31,13 @@ exports.oauthd = function (req, res) {
  */
 exports.oauthdSetCode = function (req, res) {
 
-  OAuth.setOAuthdURL('http://localhost:6284');
-  OAuth.initialize(OAUTHD_ID, OAUTHD_SECRET);
+  OAuth.setOAuthdURL(config.oauthd.serverURL);
+  OAuth.initialize(config.oauthd.OAUTHD_ID, config.oauthd.OAUTHD_SECRET);
 
   var provider = req.body.provider;
   var code = req.body.code;
 
   debug('code = %s', code);
-
   debug('Generate Token = %s', OAuth.generateStateToken(req));
 
   OAuth.auth(provider, req.session, {
@@ -45,6 +48,14 @@ exports.oauthdSetCode = function (req, res) {
         .then(
           function (user) {
             debug('REQ.SESSION = ', req.session);
+
+            var token = jwt.encode({
+              user: user._id,
+              roles: user.roles
+            }, config.jwt.secret);
+
+            user.token = token;
+            res.set(config.jwt.authHeaderName, token);
             req.session.user = user;
             res.status(200).send(user);
           },
@@ -67,7 +78,6 @@ exports.oauthdSetCode = function (req, res) {
         res.status(500).send(err);
       }
     );
-
 };
 
 /**

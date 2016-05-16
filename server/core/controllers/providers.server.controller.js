@@ -10,7 +10,8 @@ var mongoose = require('mongoose'),
   Provider = mongoose.model('Provider'),
   child_process = require('child_process').exec,
   Q= require('q'),
-  async=require('async');
+  async=require('async'),
+    config=require('./../../../config/config');
 /**
  * cache the list of available providers
  * @type {Array}
@@ -19,9 +20,7 @@ var providers = [];
 
 var getLogos = exports.getLogos = function(req, res) {
 
-  var base = 'http://localhost:6284';
-  var config = require('../../../config');
-  console.log(config);
+  var base = config.oauthd.serverURL;
 
   if (providers.length === 0) {
     debug('going to signin');
@@ -31,8 +30,8 @@ var getLogos = exports.getLogos = function(req, res) {
         url: base + '/signin',
         json: true,
         body: {
-          'name': 'cooluhuru@gmail.com',
-          'pass': 'qwe123QWE'
+          'name': config.oauthd.login,
+          'pass': config.oauthd.pss
         }
       },
       function (err, res, body) {
@@ -53,7 +52,7 @@ var getLogos = exports.getLogos = function(req, res) {
           ///api/providers/:provider
           ///api/providers/:provider/logo
 
-          var appKey = 'Ljs_v2bxsG77cXLXtkWaOm4nAHE';
+          var appKey = config.oauthd.appKey;
 
           var baseRequest = request.defaults({
             headers: headers
@@ -118,10 +117,9 @@ var signInOAuthd = exports.signInOAuthd = function() {
 
   var defer = Q.defer();
 
-  var base= 'http://localhost:6284';
+  var base= config.oauthd.serverURL;
 
-  var config = require('../../../config');
-  console.log(config);
+  var appKey = config.oauthd.appKey;
 
   debug('going to signin');
 
@@ -129,8 +127,8 @@ var signInOAuthd = exports.signInOAuthd = function() {
     { url: base + '/signin',
       json: true,
       body: {
-        'name': 'cooluhuru@gmail.com',
-        'pass': 'qwe123QWE'
+        'name': config.oauthd.login,
+        'pass': config.oauthd.pass
       }
     },
     function(err, res, body) {
@@ -152,13 +150,9 @@ var signInOAuthd = exports.signInOAuthd = function() {
         ///api/providers/:provider
         ///api/providers/:provider/logo
 
-        var appKey = 'Ljs_v2bxsG77cXLXtkWaOm4nAHE';
-
         var baseRequest = request.defaults({
           headers: headers
         });
-
-
 
         var fetch = function(path, cb){
           baseRequest.get(base + path, function(err, response, body){
@@ -249,6 +243,5 @@ exports.getProvidersStatus = function(req, res, next) {
   }, function(err) {
     console.error(err);
   });
-
-
+  
 };

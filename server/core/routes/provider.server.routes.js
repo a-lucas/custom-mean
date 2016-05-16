@@ -10,8 +10,7 @@ module.exports = function (app) {
   app.route('/getAvailableProviders').get(provider.getAvailableProviders);
 
   app.route('/initProviders').get(provider.getLogos);
-
-
+  
   app.route('/getProvidersStatus').get(provider.getProvidersStatus);
 
 };

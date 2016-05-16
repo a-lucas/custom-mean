@@ -43,14 +43,14 @@ var UserSchema = new Schema({
       ref: 'Provider'
     }
   ],
-  roles: {
-    type: [{
+  roles: [{
+    type: {
       type: String,
       enum: ['user', 'admin']
-    }],
+    },
     default: ['user'],
     required: 'Please provide at least one role'
-  },
+  }],
   updated: {
     type: Date
   },

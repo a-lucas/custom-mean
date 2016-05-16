@@ -155,7 +155,8 @@ exports.createUser = function (userData) {
     displayName: userData.me.displayName,
     firstName: userData.me.firstName,
     lastName: userData.me.lastName,
-    profileImageURL: userData.me.profileImageUrl
+    profileImageURL: userData.me.profileImageUrl,
+    roles: ['user']
   });
 
   info('ME = ', userData.me);
