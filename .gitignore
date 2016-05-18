@@ -1,4 +1,6 @@
-,sass-cache/
+access.log
+default-oauthd-instance/
+.sass-cache/
 logs/*
 !.gitkeep
 node_modules
@@ -8,3 +10,4 @@ tmp
 .idea
 public/providers
 public/lib
+public/dist/lumx.css

@@ -1,5 +1,7 @@
 'use strict';
 var debug = require('debug')('oath:core.server.controller');
+
+var config = require('../../../config/config');
 /**
  * Render the main application page
  */
@@ -12,8 +14,17 @@ exports.renderIndex = function (req, res) {
 
   debug('rendering safeUserObject: ', safeUserObject);
 
+  var safeConfig = {
+    oauthd: {
+      OAUTH_ID: config.oauthd.OAUTHD_ID,
+      serverURL: config.oauthd.serverURL
+    },
+    app: config.app
+  };
+
   res.render('server/core/views/index', {
-    user: safeUserObject
+    user: safeUserObject,
+    config: safeConfig
   });
 };
 

@@ -36,6 +36,7 @@
     "jasmine-core": "^2.3.4",
     "jasmine-node": "^1.14.5",
     "jsonwebtoken": "^5.7.0",
+    "jwt-simple": "^0.5.0",
     "lodash": "^3.10.1",
     "lumx": "^1.0.0",
     "method-override": "^2.3.3",
@@ -48,7 +49,6 @@
     "oauthd-custom": "git://github.com/a-lucas/oauthd#master",
     "oauthio": "^0.3.3",
     "owasp-password-strength-test": "^1.3.0",
-    "phantomjs": ">=1.9.0",
     "q": "^1.4.1",
     "request": "^2.69.0",
     "serve-favicon": "^2.3.0",
@@ -95,6 +95,7 @@
     "yargs": "~3.30.0"
   },
   "scripts": {
+    "dev": "./node_modules/.bin/grunt",
     "installOAuthd": "./node_modules/oauthd/oauthd init --default",
     "postinstall": "bower install",
     "oauthd": "cd default-oauthd-instance ; ./../node_modules/oauthd/oauthd start",

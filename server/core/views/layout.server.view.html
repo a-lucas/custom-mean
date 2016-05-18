@@ -30,6 +30,7 @@
 <!--Embedding The User Object-->
 <script type="text/javascript">
     var user = {{user | json | safe}};
+    var config = {{config | json | safe}};
 </script>
 
 <script type="text/javascript" src="public/lib/jquery/dist/jquery.js"></script>

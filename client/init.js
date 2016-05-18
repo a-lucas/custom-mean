@@ -18,25 +18,17 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(function ($ro
    * I18n
    */
 
-  $rootScope.languages = [
-    {
-      name: 'English',
-      id: 'en'
-    },
-    {
-      name: 'French',
-      id: 'fr'
-    }
-  ];
+  $rootScope.config = config;
+
   $rootScope.selectLang = function(lang) {
     $rootScope.language = lang;
     gettextCatalog.currentLanguage = lang.id;
     if ($state.current.name.length >0) {
       $state.go($state.current.name, {}, { reload: true });
     }
-
   };
-  $rootScope.selectLang($rootScope.languages[0]);
+  $rootScope.selectLang($rootScope.config.app.languages[0]);
+
   gettextCatalog.debug = true;
 
   // Check authentication before changing state

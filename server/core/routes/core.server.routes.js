@@ -11,4 +11,5 @@ module.exports = function (app) {
   app.route('/:url(api|modules|lib)/*').get(core.renderNotFound);
 
   app.route('/').get(core.renderIndex);
+  app.route('/authentication').get(core.renderIndex);
 };

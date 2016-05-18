@@ -2,10 +2,20 @@
 
 module.exports = {
   app: {
-    title: 'MEAN.JS',
+    title: 'CUSTOM MEAN.JS',
     description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
     keywords: 'mongodb, express, angularjs, node.js, mongoose, passport',
-    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
+    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID',
+    languages: [
+      {
+        name: 'English',
+        id: 'en'
+      },
+      {
+        name: 'French',
+        id: 'fr'
+      }
+    ]
   },
   port: process.env.PORT || 3000,
   host: process.env.HOST || '0.0.0.0',
@@ -25,7 +35,6 @@ module.exports = {
   oauthd: {
     login: 'cooluhuru@gmail.com',
     pass: 'qwe123QWE',
-    appKey: 'bUTGAq77wb3pbvYPjkC8s7z5c3k',
     serverURL: 'http://localhost:6284',
     OAUTHD_ID: 'Ljs_v2bxsG77cXLXtkWaOm4nAHE',
     OAUTHD_SECRET: 'pfu1o7O5dry0llvQ9c0pSUxLF20'

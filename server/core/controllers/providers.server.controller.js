@@ -11,7 +11,7 @@ var mongoose = require('mongoose'),
   child_process = require('child_process').exec,
   Q= require('q'),
   async=require('async'),
-    config=require('./../../../config/config');
+  config=require('./../../../config/config');
 /**
  * cache the list of available providers
  * @type {Array}
@@ -52,7 +52,7 @@ var getLogos = exports.getLogos = function(req, res) {
           ///api/providers/:provider
           ///api/providers/:provider/logo
 
-          var appKey = config.oauthd.appKey;
+          var appKey = config.oauthd.OAUTHD_ID;
 
           var baseRequest = request.defaults({
             headers: headers
@@ -119,7 +119,7 @@ var signInOAuthd = exports.signInOAuthd = function() {
 
   var base= config.oauthd.serverURL;
 
-  var appKey = config.oauthd.appKey;
+  var appKey = config.oauthd.OAUTHD_ID;
 
   debug('going to signin');
 
@@ -174,17 +174,14 @@ var signInOAuthd = exports.signInOAuthd = function() {
             }
           });
         };
-
-        //remove this crap later
-        async.map(['/api/apps/' + appKey + '/keysets'], fetch, function(err, results){
+        fetch('/api/apps/' + appKey + '/keysets', function(err, results){
           if (err){
             defer.reject(err);
           } else {
-            var keySets = results[0];
-            defer.resolve(keySets);
+            console.log(results);
+            defer.resolve(results);
           }
         });
-
       } else {
         defer.reject(body.status);
       }

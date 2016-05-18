@@ -43,14 +43,13 @@ var UserSchema = new Schema({
       ref: 'Provider'
     }
   ],
-  roles: [{
-    type: {
+  roles: {
+    type: [{
       type: String,
-      enum: ['user', 'admin']
-    },
-    default: ['user'],
-    required: 'Please provide at least one role'
-  }],
+      required: 'Please provide at least one role'
+    }],
+    validate: [roleValidation, '{PATH} must have at least one role']
+  },
   updated: {
     type: Date
   },
@@ -59,6 +58,10 @@ var UserSchema = new Schema({
     default: Date.now
   }
 });
+
+function roleValidation(val) {
+  return val.length >1 ;
+}
 
 /**
  * Hook a pre save method to hash the password
