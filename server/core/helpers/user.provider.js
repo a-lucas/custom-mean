@@ -232,6 +232,26 @@ exports.linkProviderToUser = function (userData) {
 };
 
 
+exports.getUserProviderNames = function (user) {
+  var deferred = Q.defer(),
+    providerNames = [];
+
+  user.providers.forEach(function (providerId) {
+    Provider.findById(providerId, function (err, provider) {
+      if (err) {
+        deferred.reject(err);
+      }
+      providerNames.push(provider.providerName);
+
+      if (providerNames.length === user.providers.length) {
+        deferred.resolve(providerNames);
+      }
+    });
+  });
+  return deferred.promise;
+};
+
+
 /**
  * @param userData
  * @returns {deferred.promise|{then, catch, finally}}
@@ -241,7 +261,7 @@ exports.findUserById = function (userData) {
   var deferred = Q.defer();
 
   if (userData.userId && userData.user) {
-    error('USe is already found');
+    error('User is already found');
     deferred.resolve(userData);
   }
   else if (!userData.userId) {
@@ -250,7 +270,7 @@ exports.findUserById = function (userData) {
   } else {
     User.findById(userData.userId, function (err, user) {
       if (err) {
-        error('Can\'t create userL ', err);
+        error('Can\'t find user ', err);
         throw err;
       }
       console.log('Found user = ', user);

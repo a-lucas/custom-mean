@@ -94,6 +94,7 @@ exports.oauthdSetCode = function (req, res) {
         .then(
           function (user) {
             debug('REQ.SESSION = ', req.session);
+            user = user.toObject();
 
             var token = jwt.encode({
               user: user._id,
@@ -102,8 +103,12 @@ exports.oauthdSetCode = function (req, res) {
 
             user.token = token;
             res.set(config.jwt.authHeaderName, token);
-            req.session.user = user;
-            res.status(200).send(user);
+
+            providerHelpers.getUserProviderNames(user).then(function (names) {
+              user.providerNames = names;
+              req.session.user = user;
+              res.status(200).send(req.session.user);
+            });
           },
           function (err) {
             req.session.user = null;

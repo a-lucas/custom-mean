@@ -9,9 +9,9 @@ var mongoose = require('mongoose'),
   debug = require('debug')('oauth:providers.server.controller'),
   Provider = mongoose.model('Provider'),
   child_process = require('child_process').exec,
-  Q= require('q'),
-  async=require('async'),
-  config=require('./../../../config/config');
+  Q = require('q'),
+  async = require('async'),
+  config = require('./../../../config/config');
 /**
  * cache the list of available providers
  * @type {Array}

@@ -34,7 +34,7 @@ angular.module('core').service('OAuthdService', function ($http, $q, $rootScope)
     $http.get('/oauth_state_token').then(function (res) {
       var token = res.data.token;
       OAuth.setOAuthdURL($rootScope.config.oauthd.serverURL);
-      var test = OAuth.initialize($rootScope.config.oauthd.OAUTH_ID);
+      OAuth.initialize($rootScope.config.oauthd.OAUTH_ID);
       OAuth.popup(provider, {
         state: token
       }).fail(function(a, b, c) {
