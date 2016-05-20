@@ -23,10 +23,10 @@ exports.hasRole = function (roles) {
           next();
         }
       } catch(err) {
-        res.send(401, {err: 'Invalid authorization token'});
+        res.send(401, { err: 'Invalid authorization token' });
       }
     } else {
-      res.send(401, {err: 'Invalid authorization token'});
+      res.send(401, { err: 'Invalid authorization token' });
     }
   };
 };

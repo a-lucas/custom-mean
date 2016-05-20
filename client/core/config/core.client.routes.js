@@ -16,10 +16,12 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     $stateProvider
       .state('home', {
         url: '/',
+        roles: [],
         templateUrl: path + 'home.client.view.html'
       })
       .state('not-found', {
         url: '/not-found',
+        roles: [],
         templateUrl: path + '404.client.view.html',
         data: {
           ignoreState: true
@@ -27,6 +29,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       })
       .state('bad-request', {
         url: '/bad-request',
+        roles: [],
         templateUrl: path + '400.client.view.html',
         data: {
           ignoreState: true
@@ -34,20 +37,26 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       })
       .state('forbidden', {
         url: '/forbidden',
+        roles: [],
         templateUrl: path + '403.client.view.html',
         data: {
           ignoreState: true
         }
       })
       .state('authentication', {
-        //abstract: true,
         url: '/authentication',
+        roles: [],
         templateUrl: path + 'authentication.client.view.html'
       })
       .state('home.providers', {
-        //abstract: true,
         url: 'providers',
+        roles: ['user', 'admin'],
         templateUrl: path + 'providers.client.view.html'
+      })
+      .state('home.me', {
+        url: 'me',
+        roles: ['user', 'admin'],
+        templateUrl: path + 'me.client.view.html'
       });
 
   }

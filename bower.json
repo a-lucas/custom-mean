@@ -17,7 +17,8 @@
     "gridle": "^2.0.44",
     "jquery": "2.1.4",
     "lumx": "^0.3.96",
-    "angular-gettext": "^2.2.1"
+    "angular-gettext": "^2.2.1",
+    "lodash": "^4.12.0"
   },
   "resolutions": {
     "angular": "~1.4"

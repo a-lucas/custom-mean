@@ -12,4 +12,5 @@ module.exports = function (app) {
 
   app.route('/').get(core.renderIndex);
   app.route('/authentication').get(core.renderIndex);
+  app.route('/me').get(core.renderIndex);
 };

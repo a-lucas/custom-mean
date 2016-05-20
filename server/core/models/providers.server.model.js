@@ -7,9 +7,7 @@
  * Module dependencies
  */
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  crypto = require('crypto'),
-  validator = require('validator');
+  Schema = mongoose.Schema;
 
 /**
  * User Schema
@@ -66,17 +64,5 @@ var ProviderSchema = new Schema({
     default: Date.now
   }
 });
-
-/**
- * Hook a pre save method to hash the password
- */
-ProviderSchema.pre('save', function (next) {
- /* console.log('PRE SAVE = ');
-  console.log('next = ', next);
-  console.log('this = ', this);
-  next();*/
-});
-
-
 
 mongoose.model('Provider', ProviderSchema);

@@ -253,6 +253,7 @@ exports.findUserById = function (userData) {
         error('Can\'t create userL ', err);
         throw err;
       }
+      console.log('Found user = ', user);
       userData.user = user;
       deferred.resolve(userData);
     });
@@ -282,11 +283,11 @@ exports.findUser = function (userData) {
       }
       if (user) {
         userData.user = user;
+        console.log('Found user = ', user);
         deferred.resolve(userData);
       } else {
         deferred.reject(userData);
       }
-
     });
   }
   return deferred.promise;

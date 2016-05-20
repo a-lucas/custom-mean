@@ -20,7 +20,8 @@ module.exports = {
         'public/lib/oauth-js/dist/oauth.js',
         'public/lib/velocity/velocity.js',
         'public/lib/moment/min/moment-with-locales.js',
-        'public/lib/lumx/dist/lumx.js'
+        'public/lib/lumx/dist/lumx.js',
+        'public/lib/lodash/dist/lodash.min.js'
       ]
     },
     providers: 'public/providers',

@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Init the application configuration module for AngularJS application
 var ApplicationConfiguration = (function () {
   // Init module configuration options
@@ -8,7 +9,6 @@ var ApplicationConfiguration = (function () {
 
   // Add a new vertical module
   var registerModule = function (moduleName, dependencies) {
-    console.log('registring module: ', moduleName);
     // Create angular module
     angular.module(moduleName, dependencies || []);
 

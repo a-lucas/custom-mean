@@ -4,10 +4,12 @@
  * Module dependencies
  */
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  crypto = require('crypto'),
-  validator = require('validator');
+  Schema = mongoose.Schema;
 
+
+function roleValidation(val) {
+  return val.length > 1;
+}
 /**
  * User Schema
  */
@@ -58,24 +60,5 @@ var UserSchema = new Schema({
     default: Date.now
   }
 });
-
-function roleValidation(val) {
-  return val.length >1 ;
-}
-
-/**
- * Hook a pre save method to hash the password
- */
-UserSchema.pre('save', function (next) {
-  next();
-});
-
-/**
- * Hook a pre validate method to test the local password
- */
-UserSchema.pre('validate', function (next) {
-  next();
-});
-
 
 mongoose.model('User', UserSchema);

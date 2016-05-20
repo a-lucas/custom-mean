@@ -14,6 +14,7 @@ exports.renderIndex = function (req, res) {
 
   debug('rendering safeUserObject: ', safeUserObject);
 
+
   var safeConfig = {
     oauthd: {
       OAUTH_ID: config.oauthd.OAUTHD_ID,
